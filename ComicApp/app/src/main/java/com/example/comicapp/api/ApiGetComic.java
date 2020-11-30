@@ -24,6 +24,8 @@ public class ApiGetComic extends AsyncTask<Void, Void, Void> {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://jsonkeeper.com/b/8BTG")
+                //tạo api có thể thay đổi data
+                //.url("https://comicapp1.000webhostapp.com/")
                 .build();
         data = null;
         try {

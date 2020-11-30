@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -97,5 +98,9 @@ EditText edtTimKiem;
     @Override
     public void errored() {
         Toast.makeText(this, "Error connection", Toast.LENGTH_SHORT).show();
+    }
+
+    public void update(View view){
+        new ApiGetComic(this).execute();
     }
 }
