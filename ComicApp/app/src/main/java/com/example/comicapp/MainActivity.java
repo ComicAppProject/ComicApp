@@ -2,10 +2,12 @@ package com.example.comicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -70,6 +72,17 @@ EditText edtTimKiem;
             public void afterTextChanged(Editable editable) {
                 String s = edtTimKiem.getText().toString();
                 adapter.sortTruyen(s);
+            }
+        });
+        gdvDSTruyen.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Comic comic=comicArrayList.get(i);
+                Bundle b=new Bundle();
+                b.putSerializable("Truyen",comic);
+                Intent intent=new Intent(MainActivity.this,ChapActivity.class);
+                intent.putExtra("data",b);
+                startActivity(intent);
             }
         });
     }

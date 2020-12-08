@@ -2,6 +2,7 @@ package com.example.comicapp.api;
 
 import android.os.AsyncTask;
 
+import com.example.comicapp.interfaces.LayChapVe;
 import com.example.comicapp.interfaces.LayTruyenVe;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -10,22 +11,24 @@ import com.squareup.okhttp.ResponseBody;
 
 import java.io.IOException;
 
-public class ApiGetComic extends AsyncTask<Void, Void, Void> {
+public class ApiGetChap extends AsyncTask<Void, Void, Void> {
     String data;
 
-    public ApiGetComic(LayTruyenVe layTruyenVe) {
-        this.layTruyenVe = layTruyenVe;
-        this.layTruyenVe.start();
+    public ApiGetChap(LayChapVe layChapVe, String idTruyen) {
+        this.layChapVe = layChapVe;
+        this.layChapVe.start();
+        this.idTruyen = idTruyen;
     }
 
-    LayTruyenVe layTruyenVe;
+    LayChapVe layChapVe;
+    String idTruyen;
     @Override
     protected Void doInBackground(Void... voids) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                //.url("https://jsonkeeper.com/b/8BTG")
+                //.url("https://jsonkeeper.com/b/WXH8")
                 //tạo api có thể thay đổi data
-                .url("https://comicapp1.000webhostapp.com/Comic.php")
+                .url("https://comicapp1.000webhostapp.com/Chap.php?id="+idTruyen)
                 .build();
         data = null;
         try {
@@ -41,9 +44,9 @@ public class ApiGetComic extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
       if (data == null){
-          this.layTruyenVe.errored();
+          this.layChapVe.errored();
       }else {
-          this.layTruyenVe.finish(data);
+          this.layChapVe.finish(data);
       }
     }
 }
