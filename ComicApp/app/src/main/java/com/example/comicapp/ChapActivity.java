@@ -2,14 +2,10 @@ package com.example.comicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-=======
-import android.os.Bundle;
->>>>>>> origin/master
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -65,7 +61,6 @@ ChapComicAdapter chapComicAdapter;
         Glide.with(this).load(comic.getLinkImage()).into(imgAnhTruyens);
         //lsvDanhsachChap.setAdapter(chapComicAdapter);
     }
-<<<<<<< HEAD
     private void setClick(){
         lsvDanhsachChap.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,9 +73,6 @@ ChapComicAdapter chapComicAdapter;
             }
         });
     }
-=======
-    private void setClick(){}
->>>>>>> origin/master
 
     @Override
     public void start() {

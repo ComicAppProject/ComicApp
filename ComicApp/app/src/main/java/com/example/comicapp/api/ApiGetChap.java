@@ -49,8 +49,4 @@ public class ApiGetChap extends AsyncTask<Void, Void, Void> {
           this.layChapVe.finish(data);
       }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
